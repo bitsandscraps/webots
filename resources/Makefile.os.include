@@ -58,7 +58,7 @@ ifeq ($(OSTYPE),linux)
     OSARCH = x86_64
   endif
   ifeq ($(OSTYPE),linux)
-    UBUNTU_VERSION:=$(shell lsb_release -sr)
+    UBUNTU_VERSION:=$(shell awk '/^DISTRIB_RELEASE=/{split($$0, a, "="); print a[2]}' /etc/lsb-release)
   endif
 endif
 

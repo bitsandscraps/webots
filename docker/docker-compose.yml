@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+    webots:
+        build:
+            context: ..
+            dockerfile: docker/Dockerfile
+            args:
+                - CUDA=${CUDA}
+                - UBUNTU=${UBUNTU}
+        image: bitsandscraps/webots:cuda-${CUDA}-ubuntu-${UBUNTU}
